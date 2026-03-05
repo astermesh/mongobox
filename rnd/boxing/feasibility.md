@@ -105,19 +105,19 @@ TCP Server (Node.js net)
 | Wire protocol (TCP + OP_MSG + BSON) | Low | 1-2 weeks |
 | Command routing + handshake | Low | 1 week |
 | Document store (in-memory) | Medium | 1-2 weeks |
-| Query engine (via Mingo) | Low (integration) | 1-2 weeks |
-| Update operators | Medium-High | 2-3 weeks |
+| Query engine (via Mingo) | Low (integration) | 1 week |
+| Update operators (via Mingo) | None (included) | 0 (Mingo handles all 15 update operators) |
 | Basic indexes | Medium | 2-3 weeks |
 | SCRAM-SHA-256 auth | Medium | 2-3 days |
 | Transactions (basic) | Medium | 1-2 weeks |
 
 ### Milestones
 
-**MVP (Tier 1)**: Wire protocol + CRUD + handshake → **4-6 weeks**
+**MVP (Tier 1)**: Wire protocol + CRUD + handshake → **3-4 weeks** (revised — Mingo covers updates)
 
-**Usable (Tier 1+2)**: + indexes + metadata + aggregation → **8-10 weeks**
+**Usable (Tier 1+2)**: + indexes + metadata + aggregation → **6-8 weeks**
 
-**Production (All tiers)**: + transactions + auth + advanced → **12-16 weeks**
+**Production (All tiers)**: + transactions + auth + advanced → **10-14 weeks**
 
 ## Risks
 

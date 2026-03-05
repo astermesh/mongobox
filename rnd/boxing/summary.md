@@ -42,10 +42,10 @@ MongoDB Client
 
 ### Key Dependencies
 
-| Package | Purpose | Size |
-|---------|---------|------|
-| `bson` | BSON encoding/decoding | ~45KB |
-| `mingo` | Query matching + aggregation | ~100KB |
+| Package | Purpose | Size | Status |
+|---------|---------|------|--------|
+| `bson` | BSON encoding/decoding | ~45KB | Official MongoDB package, 6M+ weekly downloads |
+| `mingo` | Query matching + aggregation + updates | ~1.1MB (tree-shakeable) | v7.2.0, 222K weekly downloads, zero deps, MIT |
 
 ### Why Pure JS
 
@@ -66,16 +66,17 @@ Wire protocol level gives complete visibility:
 
 | Milestone | Scope | Effort |
 |-----------|-------|--------|
-| MVP | Wire protocol + CRUD + handshake | 4-6 weeks |
-| Usable | + indexes + metadata + aggregation | 8-10 weeks |
-| Production | + transactions + auth + advanced queries | 12-16 weeks |
+| MVP | Wire protocol + CRUD + handshake | 3-4 weeks (revised down — Mingo handles updates) |
+| Usable | + indexes + metadata + aggregation | 6-8 weeks |
+| Production | + transactions + auth + advanced queries | 10-14 weeks |
 
 ## Risks
 
-1. **Query semantics edge cases** — MongoDB has subtle behaviors (array matching, type coercion). Mingo covers most but not all
-2. **Driver compatibility** — Different drivers may use different protocol features
-3. **Aggregation completeness** — Full pipeline is a multi-year effort. Target 80% of common operations
+1. **Query semantics edge cases** — MongoDB has subtle behaviors (array matching, type coercion). Mingo's `useStrictMode` helps but edge cases may exist
+2. **Driver compatibility** — MVP targets Node.js driver only; multi-driver support is future scope
+3. **Aggregation completeness** — Mingo covers 28 pipeline stages. Missing: server-dependent stages ($changeStream, $geoNear, $search). Acceptable for MVP
 4. **Scale** — In-memory JS fine for test datasets, may struggle with 100K+ documents
+5. **Mingo BSON type gaps** — Mingo works with JS objects, not native BSON types (ObjectId, Decimal128, Timestamp). Need to verify type coercion at serialization boundary
 
 ---
 
