@@ -8,6 +8,8 @@ Initial research for MongoBox: wire protocol, existing solutions, and feasibilit
 - [Wire protocol](wire-protocol.md) — OP_MSG, BSON, handshake, connection lifecycle
 - [Existing solutions](existing-solutions.md) — FerretDB, mongodb-memory-server, NeDB, Mingo survey
 - [Feasibility analysis](feasibility.md) — architecture options, effort estimates, risks
+- [Command response formats](command-responses.md) — exact response schemas for all MongoDB commands
+- [Research gaps](gaps.md) — missing prerequisites for planning readiness
 
 ---
 
