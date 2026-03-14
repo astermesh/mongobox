@@ -144,6 +144,17 @@ When moving or renaming files/folders:
 3. Update all found references to point to the new location
 4. Verify navigation links in moved files point to correct parent directories
 
+### File Organization Principle
+
+Code must be modular. File structure must reflect that modularity. The goal is grouping rules that naturally produce small, focused files — not size limits or reactive splitting.
+
+A large file is not a problem in itself — it is a symptom of wrong grouping rules. The fix is never "split this file" — the fix is "find the right decomposition principle so this file wouldn't have existed in the first place." There is no line count threshold. A 300-line file with one cohesive responsibility is fine. A 150-line file with two unrelated responsibilities is not.
+
+Code that evolves together should live close together (same module, same directory); code that evolves independently should be separated. This is an important grouping criterion.
+
+### Test Placement
+
+Tests must be co-located with the code they test (e.g., `foo.ts` → `foo.test.ts` in the same directory). Do not separate tests into a dedicated test tree.
 ### File Naming Conventions
 
 - Use lowercase, hyphens for spaces (e.g., `canvas-renderer.ts`)
@@ -222,6 +233,13 @@ Location: `rnd/`
 **Naming:** `topic-name` (e.g., `boxing`, `indexes`)
 
 Conduct all research and exploration in the `rnd/` folder. Create a new subfolder for each research topic.
+
+### No Deferring Cheap Work
+
+- NEVER defer work because it seems "not important right now"
+- If something can be done in the current context (a hook, a test, a small fix) — do it
+- The cost of doing small things now ≈ 0; the cost of forgetting them later > 0
+- Don't optimize for "focus" by skipping cheap tasks — that's a human-team heuristic, not applicable to LLM agents
 
 ### Running Project Scripts
 

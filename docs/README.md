@@ -4,7 +4,7 @@ Project documentation for MongoBox.
 
 ## Contents
 
-*(No documents yet)*
+- [Simbox](simbox.md) — canonical domain model reference
 
 ---
 
